@@ -1,71 +1,147 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VR Behavior Dataset | Head and Gaze Tracking</title>
+    <title>GSpark: A Multimodal User-Behavior Dataset</title>
     <style>
-        body { font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; background-color: #fcfcfc; }
-        header { background-color: #1a5a96; color: white; padding: 20px; border-radius: 8px 8px 0 0; margin-bottom: 30px; }
-        h1 { margin: 0; font-size: 2em; }
-        h2 { color: #b22222; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
-        .hero-img { width: 100%; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 20px 0; }
-        .highlight-box { background: #fdf2f2; border-left: 5px solid #b22222; padding: 15px; margin: 20px 0; }
-        .download-card { background: #f4f4f4; border: 1px solid #ddd; padding: 20px; border-radius: 8px; text-align: center; }
-        .btn-coming-soon { background: #999; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; display: inline-block; cursor: not-allowed; }
-        pre { background: #f1f1f1; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 0.9em; }
+        :root { --primary-blue: #2c3e50; --accent-red: #b22222; --light-gray: #f8f9fa; }
+        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: #333; max-width: 1050px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Header */
+        header { text-align: center; margin-bottom: 50px; }
+        h1 { font-size: 2.2em; color: var(--primary-blue); margin-bottom: 10px; }
+        .authors { font-size: 1.1em; color: #666; margin-bottom: 20px; }
+        .links { margin: 20px 0; }
+        .links a { margin: 0 10px; padding: 10px 20px; background: var(--primary-blue); color: white; text-decoration: none; border-radius: 25px; font-weight: 500; font-size: 0.9em; }
+        .links a:hover { opacity: 0.9; }
+
+        /* Sections */
+        h2 { color: var(--accent-red); border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-top: 40px; font-size: 1.6em; }
+        .abstract { font-style: normal; text-align: justify; background: var(--light-gray); padding: 25px; border-radius: 8px; }
+        
+        /* Image and Table */
+        .main-fig { width: 100%; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin: 20px 0; }
+        .caption { text-align: center; font-size: 0.9em; color: #666; margin-top: -10px; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9em; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background-color: #eee; }
+        .check { color: green; font-weight: bold; }
+
+        /* Citation */
+        pre { background: #eee; padding: 20px; border-radius: 5px; overflow-x: auto; font-size: 0.85em; }
+        footer { text-align: center; margin-top: 60px; color: #999; font-size: 0.8em; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>VR Behavior Dataset</h1>
-    <p>Large-scale Head Motion and Eye Gaze Data in 360° Videos</p>
+    <h1>Guided by Your Behavior: A Multimodal User-Behavior Dataset for Photorealistic Static and Dynamic Gaussian Splat Viewing</h1>
+    <div class="authors">Anonymous Author(s)</div>
+    <div class="links">
+        <a href="#">Paper (ArXiv)</a>
+        <a href="#download">Dataset (Coming Soon)</a>
+        <a href="#">Code (GitHub)</a>
+    </div>
 </header>
 
 <section>
-    <h2>Overview</h2>
-    <p>本数据集记录了 <strong>100 名用户</strong> 在观看 <strong>27 个 360° 视频</strong> 时的交互行为。包含近 <strong>2000 万条</strong> 高频采集的头部姿态与眼动追踪数据。</p>
-    <img src="assets/preview.png" alt="Dataset Visualization" class="hero-img">
+    <img src="assets/preview.png" alt="GSpark Overview" class="main-fig">
+    <p class="caption">Figure 1: Illustration of downstream services and applications guided by multimodal cross-category user behavior analysis.</p>
 </section>
 
 <section>
-    <h2>Key Specifications</h2>
-    <div class="highlight-box">
-        <ul>
-            <li><strong>Sampling Frequency:</strong> 120Hz</li>
-            <li><strong>Data Type:</strong> Quaternion (Head) & 2D/3D Coordinates (Gaze)</li>
-            <li><strong>Content:</strong> 27 Diverse 360° Video Sequences</li>
-            <li><strong>Participants:</strong> 100 Users</li>
-        </ul>
-    </div>
+    <h2>Abstract</h2>
+    <p class="abstract">
+        最近出现的 3D/4D Gaussian Splatting (GS) 展示了实现物理世界虚拟化的巨大潜力。
+        为了填补大规模用户行为数据集的空白，我们构建了 <strong>GSpark</strong>。这是首个大规模多模态用户行为数据集，涵盖了多种类别的 3DGS 内容。
+        我们采集了 XXX 名参与者在与光流场 3DGS 内容交互时的 <strong>6DoF 运动</strong> 和 <strong>眼动信号</strong>，并将其分为：
+        花园级静态、大型静态、动态人体、以及全场景动态四种类型。
+    </p>
+</section>
+
+<section>
+    <h2>Key Contributions</h2>
+    <ul>
+        <li><strong>First Large-scale Dataset:</strong> 引入了首个覆盖多种 3DGS 类别（静态与动态）的多模态用户行为数据集。</li>
+        <li><strong>Comprehensive Analysis:</strong> 进行了深入的跨类别定量分析，揭示了底层行为机制。</li>
+        <li><strong>Viewport Prediction:</strong> 通过实验证明，结合多模态行为信号能显著提升视口预测的准确性。</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Dataset Comparison</h2>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Dataset</th>
+                <th colspan="2">Static 3DGS</th>
+                <th colspan="2">Dynamic 4DGS</th>
+                <th colspan="2">User Behaviors</th>
+            </tr>
+            <tr>
+                <th>Garden-scale</th>
+                <th>Large-scale</th>
+                <th>Human</th>
+                <th>Full-scene</th>
+                <th>6DoF</th>
+                <th>Gaze</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>EyeNavGS [4]</td>
+                <td class="check">✓</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td class="check">✓</td>
+                <td class="check">✓</td>
+            </tr>
+            <tr>
+                <td>ViewGauss [29]</td>
+                <td class="check">✓</td>
+                <td>-</td>
+                <td class="check">✓</td>
+                <td>-</td>
+                <td class="check">✓</td>
+                <td>-</td>
+            </tr>
+            <tr style="background-color: #fff9f9; font-weight: bold;">
+                <td>GSpark (Ours)</td>
+                <td class="check">✓</td>
+                <td class="check">✓</td>
+                <td class="check">✓</td>
+                <td class="check">✓</td>
+                <td class="check">✓</td>
+                <td class="check">✓</td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 <section id="download">
-    <h2>Download</h2>
-    <div class="download-card">
-        <p>数据正在进行最后的脱敏与质量检查，预计将于近期发布。</p>
-        <p><i>The dataset will be released upon paper acceptance.</i></p>
-        <a href="#" class="btn-coming-soon">Coming Soon (Available in 2026)</a>
-        <p style="margin-top:15px; font-size: 0.9em; color: #666;">如有紧急研究需求，请联系：<a href="mailto:yourname@email.com">yourname@email.com</a></p>
+    <h2>Download & Access</h2>
+    <div style="background: #fff4f4; padding: 20px; border-radius: 8px; border: 1px dashed var(--accent-red);">
+        <p><strong>Note:</strong> The dataset will be publicly available on our project website upon acceptance of the paper.</p>
+        <p>目前数据集正在进行最后的质量校验。如有学术交流需求，请联系项目负责人。</p>
     </div>
 </section>
 
 <section>
-    <h2>Citation</h2>
-    <p>如果您在研究中使用了该数据集，请引用：</p>
+    <h2>BibTeX Citation</h2>
     <pre>
-@article{yourname2026vr,
-  title={Head and Gaze VR Behavior Dataset},
-  author={Your Name, and Others},
-  journal={arXiv preprint},
+@inproceedings{anonymous2026guided,
+  title={Guided by Your Behavior: A Multimodal User-Behavior Dataset for Photorealistic Static and Dynamic Gaussian Splat Viewing},
+  author={Anonymous Author(s)},
+  booktitle={Proceedings of ACM Multimedia},
   year={2026}
 }</pre>
 </section>
 
 <footer>
-    <hr>
-    <p style="text-align: center; color: #888; font-size: 0.8em;">© 2026 Your Research Lab / University Name</p>
+    &copy; 2026 GSpark Project Team. Built with GitHub Pages.
 </footer>
 
 </body>
