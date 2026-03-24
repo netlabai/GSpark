@@ -5,33 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GSpark: A Multimodal User-Behavior Dataset</title>
     <style>
-        :root { --primary-blue: #2c3e50; --accent-red: #b22222; --light-gray: #f8f9fa; }
-        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: #333; max-width: 1050px; margin: 0 auto; padding: 40px 20px; }
+        :root { --primary-blue: #1a5a96; --accent-red: #b22222; --light-gray: #f9f9f9; --text-dark: #333; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-dark); max-width: 1100px; margin: 0 auto; padding: 40px 20px; background-color: #fff; }
         
-        /* Header */
+        /* Header & Links */
         header { text-align: center; margin-bottom: 50px; }
-        h1 { font-size: 2.2em; color: var(--primary-blue); margin-bottom: 10px; }
-        .authors { font-size: 1.1em; color: #666; margin-bottom: 20px; }
-        .links { margin: 20px 0; }
-        .links a { margin: 0 10px; padding: 10px 20px; background: var(--primary-blue); color: white; text-decoration: none; border-radius: 25px; font-weight: 500; font-size: 0.9em; }
-        .links a:hover { opacity: 0.9; }
+        h1 { font-size: 2.2em; color: var(--text-dark); margin-bottom: 10px; font-weight: 600; line-height: 1.3; }
+        .authors { font-size: 1.2em; color: #666; margin-bottom: 25px; }
+        .links { margin: 30px 0; }
+        .links a { margin: 0 15px; padding: 12px 30px; background: var(--primary-blue); color: white; text-decoration: none; border-radius: 30px; font-weight: 500; transition: 0.3s; }
+        .links a:hover { background: #134575; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
 
         /* Sections */
-        h2 { color: var(--accent-red); border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-top: 40px; font-size: 1.6em; }
-        .abstract { font-style: normal; text-align: justify; background: var(--light-gray); padding: 25px; border-radius: 8px; }
+        h2 { color: var(--primary-blue); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 50px; font-size: 1.8em; }
+        .abstract { text-align: justify; background: var(--light-gray); padding: 30px; border-radius: 8px; border: 1px solid #eee; }
         
-        /* Image and Table */
-        .main-fig { width: 100%; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin: 20px 0; }
-        .caption { text-align: center; font-size: 0.9em; color: #666; margin-top: -10px; }
-        
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9em; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
-        th { background-color: #eee; }
-        .check { color: green; font-weight: bold; }
+        /* Figure Styling */
+        .fig-container { text-align: center; margin: 30px 0; }
+        .main-fig { max-width: 100%; border-radius: 4px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+        .caption { font-size: 0.95em; color: #555; margin-top: 10px; font-style: italic; }
 
+        /* Professional HTML Table Styling */
+        .table-wrapper { overflow-x: auto; margin: 30px 0; border: 1px solid #ddd; border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; background: white; font-size: 0.95em; }
+        th, td { border: 1px solid #eee; padding: 12px 15px; text-align: center; }
+        th { background-color: #f4f7f9; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        tr:nth-child(even) { background-color: #fafafa; }
+        .category-cell { font-weight: bold; background: #fff !important; color: #555; vertical-align: middle; }
+        
+        /* Download Card */
+        .download-card { background: #fffcfc; border: 1px solid #ffcccc; padding: 30px; border-radius: 8px; text-align: center; margin-top: 30px; }
+        .btn-coming-soon { background: #999; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block; cursor: not-allowed; font-weight: bold; }
+        
         /* Citation */
-        pre { background: #eee; padding: 20px; border-radius: 5px; overflow-x: auto; font-size: 0.85em; }
-        footer { text-align: center; margin-top: 60px; color: #999; font-size: 0.8em; }
+        pre { background: #f4f4f4; padding: 20px; border-radius: 5px; overflow-x: auto; font-size: 0.9em; border: 1px solid #ddd; line-height: 1.4; }
+        footer { text-align: center; margin-top: 70px; color: #888; font-size: 0.85em; border-top: 1px solid #eee; padding-top: 20px; }
     </style>
 </head>
 <body>
@@ -41,91 +49,128 @@
     <div class="authors">Anonymous Author(s)</div>
     <div class="links">
         <a href="#">Paper (ArXiv)</a>
-        <a href="#download">Dataset (Coming Soon)</a>
-        <a href="#">Code (GitHub)</a>
+        <a href="#dataset">Dataset</a>
     </div>
 </header>
 
 <section>
-    <img src="assets/preview.png" alt="GSpark Overview" class="main-fig">
-    <p class="caption">Figure 1: Illustration of downstream services and applications guided by multimodal cross-category user behavior analysis.</p>
+    <div class="fig-container">
+        <img src="assets/preview.png" alt="GSpark Pipeline Overview" class="main-fig">
+        <p class="caption">Figure 1: Illustration of downstream services and applications guided by multimodal cross-category user behavior analysis.</p>
+    </div>
 </section>
 
 <section>
     <h2>Abstract</h2>
     <p class="abstract">
-        最近出现的 3D/4D Gaussian Splatting (GS) 展示了实现物理世界虚拟化的巨大潜力。
-        为了填补大规模用户行为数据集的空白，我们构建了 <strong>GSpark</strong>。这是首个大规模多模态用户行为数据集，涵盖了多种类别的 3DGS 内容。
-        我们采集了 XXX 名参与者在与光流场 3DGS 内容交互时的 <strong>6DoF 运动</strong> 和 <strong>眼动信号</strong>，并将其分为：
-        花园级静态、大型静态、动态人体、以及全场景动态四种类型。
+        The recently emerging 3D/4D Gaussian Splatting (GS) has demonstrated transformative potential in enabling photorealistic virtualization. However, user behavior-aware studies remain limited due to the absence of large-scale, comprehensive datasets. To address this deficit, we introduce <b>GSpark</b>, the first large-scale multimodal user-behavior dataset covering multiple categories of 3DGS/4DGS content. We captured synchronized <b>6DoF motions</b> and <b>gaze signals</b> from participants interacting with 27 diverse Gaussian Splatting scenes, facilitating research in viewport prediction, network streaming, and user identification.
     </p>
 </section>
 
 <section>
-    <h2>Key Contributions</h2>
-    <ul>
-        <li><strong>First Large-scale Dataset:</strong> 引入了首个覆盖多种 3DGS 类别（静态与动态）的多模态用户行为数据集。</li>
-        <li><strong>Comprehensive Analysis:</strong> 进行了深入的跨类别定量分析，揭示了底层行为机制。</li>
-        <li><strong>Viewport Prediction:</strong> 通过实验证明，结合多模态行为信号能显著提升视口预测的准确性。</li>
-    </ul>
+    <h2>Dataset Content & Specifications</h2>
+    <p>Below are the specific details of the 27 diverse Gaussian Splatting sequences included in the GSpark dataset, categorized by scene scale and temporal dynamics.</p>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Content Name</th>
+                    <th>Label</th>
+                    <th>Area</th>
+                    <th>View Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3" class="category-cell">Garden-scale<br>3DGS Scenes</td>
+                    <td>Garden [1]</td>
+                    <td>Outdoor</td>
+                    <td>400 m²</td>
+                    <td>120 s</td>
+                </tr>
+                <tr>
+                    <td>Truck [13]</td>
+                    <td>Outdoor</td>
+                    <td>80 m²</td>
+                    <td>120 s</td>
+                </tr>
+                <tr>
+                    <td>DrJohnson [9]</td>
+                    <td>Indoor</td>
+                    <td>60 m²</td>
+                    <td>120 s</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="category-cell">Large-scale<br>3DGS Scene</td>
+                    <td>Gallery [17]</td>
+                    <td>Indoor</td>
+                    <td>2500 m²</td>
+                    <td>120 s</td>
+                </tr>
+                <tr>
+                    <td>Campus [12]</td>
+                    <td>Outdoor</td>
+                    <td>55000 m²</td>
+                    <td>120 s</td>
+                </tr>
+                <tr>
+                    <td>CUHK<sub>Lower</sub> [26]</td>
+                    <td>Aerial</td>
+                    <td>1.020 km²</td>
+                    <td>120 s</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="category-cell">Dynamic 4DGS<br>Human Avatars</td>
+                    <td>DNA08_01 [27]</td>
+                    <td>Dancer</td>
+                    <td>-</td>
+                    <td>5x6 s</td>
+                </tr>
+                <tr>
+                    <td>DNA13_09 [27]</td>
+                    <td>Photog</td>
+                    <td>-</td>
+                    <td>5x6 s</td>
+                </tr>
+                <tr>
+                    <td>Sport_2 [24]</td>
+                    <td>Player</td>
+                    <td>-</td>
+                    <td>6x6 s</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" class="category-cell">Dynamic Full-scene<br>4DGS</td>
+                    <td>Dance_3 [27]</td>
+                    <td>Perform</td>
+                    <td>10 m²</td>
+                    <td>10x5 s</td>
+                </tr>
+                <tr>
+                    <td>Actor1_4 [15]</td>
+                    <td>Interact</td>
+                    <td>10 m²</td>
+                    <td>6x6 s</td>
+                </tr>
+                <tr>
+                    <td>Actor2_3 [16]</td>
+                    <td>Interact</td>
+                    <td>10 m²</td>
+                    <td>6x6 s</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </section>
 
-<section>
-    <h2>Dataset Comparison</h2>
-    <table>
-        <thead>
-            <tr>
-                <th rowspan="2">Dataset</th>
-                <th colspan="2">Static 3DGS</th>
-                <th colspan="2">Dynamic 4DGS</th>
-                <th colspan="2">User Behaviors</th>
-            </tr>
-            <tr>
-                <th>Garden-scale</th>
-                <th>Large-scale</th>
-                <th>Human</th>
-                <th>Full-scene</th>
-                <th>6DoF</th>
-                <th>Gaze</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>EyeNavGS [4]</td>
-                <td class="check">✓</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td class="check">✓</td>
-                <td class="check">✓</td>
-            </tr>
-            <tr>
-                <td>ViewGauss [29]</td>
-                <td class="check">✓</td>
-                <td>-</td>
-                <td class="check">✓</td>
-                <td>-</td>
-                <td class="check">✓</td>
-                <td>-</td>
-            </tr>
-            <tr style="background-color: #fff9f9; font-weight: bold;">
-                <td>GSpark (Ours)</td>
-                <td class="check">✓</td>
-                <td class="check">✓</td>
-                <td class="check">✓</td>
-                <td class="check">✓</td>
-                <td class="check">✓</td>
-                <td class="check">✓</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
-<section id="download">
-    <h2>Download & Access</h2>
-    <div style="background: #fff4f4; padding: 20px; border-radius: 8px; border: 1px dashed var(--accent-red);">
-        <p><strong>Note:</strong> The dataset will be publicly available on our project website upon acceptance of the paper.</p>
-        <p>目前数据集正在进行最后的质量校验。如有学术交流需求，请联系项目负责人。</p>
+<section id="dataset">
+    <h2>Dataset Access</h2>
+    <div class="download-card">
+        <h3>GSpark Dataset Download</h3>
+        <p>The dataset is currently undergoing final quality checks and anonymization processing.</p>
+        <p style="color: var(--accent-red); font-weight: 500; margin-bottom: 20px;">The full dataset will be made publicly available upon the official acceptance of the paper.</p>
+        <a href="#" class="btn-coming-soon">Download Coming Soon</a>
+        <p style="margin-top:20px; font-size: 0.9em; color: #555;">For urgent research inquiries or collaboration, please contact: <a href="mailto:yourname@email.com">yourname@email.com</a></p>
     </div>
 </section>
 
@@ -141,7 +186,7 @@
 </section>
 
 <footer>
-    &copy; 2026 GSpark Project Team. Built with GitHub Pages.
+    <p>&copy; 2026 GSpark Project Team. All rights reserved.</p>
 </footer>
 
 </body>
