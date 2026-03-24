@@ -30,6 +30,11 @@
         .check { color: #27ae60; font-weight: bold; }
         .highlight-row { background-color: #fff9f9; font-weight: bold; }
 
+        /* Download Button Styling */
+        .download-btn { background: var(--accent-red); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; margin: 10px 0; }
+        .download-btn:hover { background: #8e1b1b; transform: translateY(-2px); }
+        .pwd-box { font-family: monospace; background: #eee; padding: 2px 8px; border-radius: 4px; color: var(--accent-red); font-weight: bold; }
+
         /* Citation */
         pre { background: #eee; padding: 20px; border-radius: 5px; overflow-x: auto; font-size: 0.85em; line-height: 1.4; border: 1px solid #ddd; }
         footer { text-align: center; margin-top: 60px; color: #999; font-size: 0.8em; border-top: 1px solid #eee; padding-top: 20px; }
@@ -41,7 +46,9 @@
     <h1>Guided by Your Behavior: A Multimodal User-Behavior Dataset for Photorealistic Static and Dynamic Gaussian Splat Viewing</h1>
     <div class="authors">Anonymous Author(s)</div>
     <div class="links">
-
+        <a href="#">Paper (ArXiv)</a>
+        <a href="https://pan.baidu.com/s/1KeK1pLjnYByKwegp48wesA?pwd=enjb" target="_blank">Dataset (Baidu Netdisk)</a>
+        <a href="https://github.com/zhousijie04/zhousijie04.github.io" target="_blank">Code (GitHub)</a>
     </div>
 </header>
 
@@ -120,11 +127,19 @@
 <section id="download">
     <h2>Download & Access</h2>
     <div style="background: #fffcfc; padding: 25px; border-radius: 8px; border: 1px dashed var(--accent-red); text-align: center;">
-        <p><strong>Note:</strong> The full dataset will be publicly available on this website upon the official acceptance of the paper.</p>
-        <p>Currently, the dataset is undergoing final quality checks and anonymization. For academic inquiries, please contact the project maintainers.</p>
-        <div style="margin-top: 15px;">
-            <span style="background: #eee; padding: 8px 15px; border-radius: 5px; color: #777; font-weight: bold;">Coming Soon</span>
-        </div>
+        <p>The GSpark dataset is available via Baidu Netdisk for academic research purposes.</p>
+        
+        <a href="https://pan.baidu.com/s/1KeK1pLjnYByKwegp48wesA?pwd=enjb" target="_blank" class="download-btn">
+            Download from Baidu Netdisk
+        </a>
+        
+        <p style="margin-top: 10px;">
+            Extraction Code (提取码): <span class="pwd-box">enjb</span>
+        </p>
+        
+        <p style="font-size: 0.85em; color: #777; margin-top: 15px;">
+            Note: If the link is invalid, please contact the project maintainers for a new mirror.
+        </p>
     </div>
 </section>
 
